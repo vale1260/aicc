@@ -3,6 +3,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Header } from './components/Header'
+import { Footer } from './components/Footer'
 import axios from 'axios';
 
 import Login from './components/login.component'
@@ -60,37 +61,29 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className="App min-h-screen flex flex-col">
         <Header
           isLoggedIn={isLoggedIn}
           onLogout={Logout}
           onProfileRedirect={handleProfileRedirect}
         />
-        <Routes>
-          <Route path="/sign-in" element={<Login />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/cursos" element={<Cursos />} />
-          <Route path="/relleno" element={<Relleno />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/profesores" element={<Profesores />} />
-          <Route path="/horario" element={<Horario />} />
-          <Route path="/profile" element={<Perfil />} />
-          <Route path="/profile_prof" element={<Perfil_profe />} />
-        </Routes>
-        <Relleno />
+        
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/sign-in" element={<Login />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/cursos" element={<Cursos />} />
+            <Route path="/relleno" element={<Relleno />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/profesores" element={<Profesores />} />
+            <Route path="/horario" element={<Horario />} />
+            <Route path="/profile" element={<Perfil />} />
+            <Route path="/profile_prof" element={<Perfil_profe />} />
+          </Routes>
+          <Relleno />
+        </main>
 
-        <div class="container" style={{ marginTop: "860px" }}>
-          <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-              <span class="mb-3 mb-md-0 text-body-secondary">© 2023 Company, Inc</span>
-            </div>
-
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-              <li className="nav-item"><a href="#" className="nav-link white-link">Facebook</a></li>
-              <li className="nav-item"><a href="#" className="nav-link white-link">Instagram</a></li>
-            </ul>
-          </footer>
-        </div>
+        <Footer />
       </div>
     </Router>
   )
