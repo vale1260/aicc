@@ -1,69 +1,44 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { ScheduleTable } from './ScheduleTable';
 
-export default class Horario extends Component {
-  constructor() {
-    super();
-    this.state = {
-      diasSemana: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
-      horarios: [
-        { hora: '09:00 AM', disponible: true, lunes: true, martes: false, miercoles: true, jueves: false, viernes: true },
-        { hora: '10:00 AM', disponible: true, lunes: false, martes: true, miercoles: false, jueves: true, viernes: false },
-        { hora: '11:00 AM', disponible: false, lunes: true, martes: true, miercoles: false, jueves: true, viernes: false },
-        { hora: '12:00 PM', disponible: true, lunes: true, martes: false, miercoles: true, jueves: false, viernes: true },
-        { hora: '13:00 PM', disponible: true, lunes: false, martes: true, miercoles: false, jueves: false, viernes: true },
-        { hora: '14:00 PM', disponible: false, lunes: true, martes: true, miercoles: false, jueves: false, viernes: true },
-        { hora: '15:00 PM', disponible: true, lunes: true, martes: false, miercoles: true, jueves: true, viernes: false },
-        { hora: '16:00 PM', disponible: true, lunes: false, martes: true, miercoles: false, jueves: false, viernes: true },
-        { hora: '17:00 PM', disponible: false, lunes: true, martes: true, miercoles: false, jueves: false, viernes: true },
-        { hora: '18:00 PM', disponible: true, lunes: true, martes: false, miercoles: true, jueves: false, viernes: true },
-        { hora: '19:00 PM', disponible: true, lunes: false, martes: true, miercoles: false, jueves: false, viernes: true },
-        { hora: '20:00 PM', disponible: false, lunes: true, martes: true, miercoles: false, jueves: false, viernes: true },
-        { hora: '21:00 PM', disponible: true, lunes: true, martes: false, miercoles: true, jueves: true, viernes: false }
-      ],
-    };
-  }
+const Horario = () => {
+  const diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
+  const horarios = [
+    { hora: '09:00 AM', disponible: true, lunes: true, martes: false, miercoles: true, jueves: false, viernes: true },
+    { hora: '10:00 AM', disponible: true, lunes: false, martes: true, miercoles: false, jueves: true, viernes: false },
+    { hora: '11:00 AM', disponible: false, lunes: true, martes: true, miercoles: false, jueves: true, viernes: false },
+    { hora: '12:00 PM', disponible: true, lunes: true, martes: false, miercoles: true, jueves: false, viernes: true },
+    { hora: '13:00 PM', disponible: true, lunes: false, martes: true, miercoles: false, jueves: false, viernes: true },
+    { hora: '14:00 PM', disponible: false, lunes: true, martes: true, miercoles: false, jueves: false, viernes: true },
+    { hora: '15:00 PM', disponible: true, lunes: true, martes: false, miercoles: true, jueves: true, viernes: false },
+    { hora: '16:00 PM', disponible: true, lunes: false, martes: true, miercoles: false, jueves: false, viernes: true },
+    { hora: '17:00 PM', disponible: false, lunes: true, martes: true, miercoles: false, jueves: false, viernes: true },
+    { hora: '18:00 PM', disponible: true, lunes: true, martes: false, miercoles: true, jueves: false, viernes: true },
+    { hora: '19:00 PM', disponible: true, lunes: false, martes: true, miercoles: false, jueves: false, viernes: true },
+    { hora: '20:00 PM', disponible: false, lunes: true, martes: true, miercoles: false, jueves: false, viernes: true },
+    { hora: '21:00 PM', disponible: true, lunes: true, martes: false, miercoles: true, jueves: true, viernes: false }
+  ];
 
-  renderTableHeader() {
-    return (
-      <tr>
-        <th>Hora/Día</th>
-        {this.state.diasSemana.map((dia, index) => (
-          <th key={index}>{dia}</th>
-        ))}
-      </tr>
-    );
-  }
-
-  renderHorarioRow(horario, index) {
-    return (
-      <tr key={index}>
-        <td>{horario.hora}</td>
-        {this.state.diasSemana.map((dia, i) => (
-          <td
-            key={i}
-            className={horario[dia.toLowerCase()] ? (horario.disponible ? 'disponible' : 'no-disponible') : ''}
-          >
-            {horario[dia.toLowerCase()] ? (horario.disponible ? 'Disponible' : 'No disponible') : ''}
-          </td>
-        ))}
-      </tr>
-    );
-  }
-
-  render() {
-    return (
-      <div className="row justify-content-center align-items-center vh-100" style={{ marginTop: "40px" }}>
-        <div style={{ marginRight: '20px', textAlign: 'center' }}>
-          <h1>Horarios Disponibles</h1>
-          <p>Los horarios son bastante flexibles, permitiendo a cada estudiante asistir un máximo de 8 horas por semana</p>
+  return (
+    <div className="pt-32 pb-20 bg-gray-50 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Page Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
+            Horarios Disponibles
+          </h1>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Nuestros horarios son altamente flexibles, permitiendo a cada estudiante asistir un máximo de <span className="text-blue-600 font-bold underline decoration-2 decoration-blue-200">8 horas por semana</span>.
+          </p>
         </div>
-        <div style={{ overflow: 'hidden', borderRadius: '10px', border: '2px solid #ddd' }}>
-          <table style={{ backgroundColor: 'white', borderRadius: '10px', borderCollapse: 'collapse', width: '100%' }}>
-            <thead>{this.renderTableHeader()}</thead>
-            <tbody>{this.state.horarios.map((horario, index) => this.renderHorarioRow(horario, index))}</tbody>
-          </table>
-        </div>
+
+        {/* Schedule Table Component */}
+        <ScheduleTable days={diasSemana} schedule={horarios} />
+
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default Horario;
