@@ -70,6 +70,8 @@ function App() {
         
         <main className="flex-grow">
           <Routes>
+            <Route path="/" element={<Relleno />} />
+            <Route path="/home" element={<Relleno />} />
             <Route path="/sign-in" element={<Login />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/cursos" element={<Cursos />} />
@@ -80,7 +82,6 @@ function App() {
             <Route path="/profile" element={<Perfil />} />
             <Route path="/profile_prof" element={<Perfil_profe />} />
           </Routes>
-          <Relleno />
         </main>
 
         <Footer />
