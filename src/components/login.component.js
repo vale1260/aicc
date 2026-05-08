@@ -7,7 +7,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [isLoggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   const logInUser = () => {
@@ -27,8 +26,6 @@ export default function LoginPage() {
           const { access_token } = response.data;
           // Almacena el token
           localStorage.setItem('token', access_token);
-  
-          setLoggedIn(true);
 
           navigate("/");
           window.location.reload();

@@ -1,34 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Dropdown, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 const Sidebar = () => {
   const [selectedOption, setSelectedOption] = useState('perfil');
   const [userData, setUserData] = useState(null);
 
-  const handleFileUpload = () => {
-    // Aquí puedes agregar la lógica para manejar la carga de archivos
-    console.log('Subir archivo...');
-  };
 
-const [selectedBlocks, setSelectedBlocks] = useState([]);
-const [selectedCount, setSelectedCount] = useState(0);
-
-const handleBlockSelection = (day, hour) => {
-  const blockKey = `${day}-${hour}`;
-  
-  if (selectedBlocks.includes(blockKey)) {
-    // Si el bloque ya está seleccionado, lo deseleccionamos
-    setSelectedBlocks(selectedBlocks.filter(block => block !== blockKey));
-    setSelectedCount(selectedCount - 1);
-  } else {
-    // Si el bloque no está seleccionado, lo seleccionamos si no hemos alcanzado el límite de 8 bloques
-    if (selectedCount < 8) {
-      setSelectedBlocks([...selectedBlocks, blockKey]);
-      setSelectedCount(selectedCount + 1);
-    }
-  }
-};
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -63,13 +40,13 @@ const handleBlockSelection = (day, hour) => {
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item">
-            <a href="#" className={`nav-link ${selectedOption === 'perfil' ? 'active' : ''}`} onClick={() => setSelectedOption('perfil')}>
+            <a href="#!" className={`nav-link ${selectedOption === 'perfil' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); setSelectedOption('perfil'); }}>
               <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#home"></use></svg>
               Perfil
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className={`nav-link ${selectedOption === 'compras' ? 'active' : ''}`} onClick={() => setSelectedOption('compras')}>
+            <a href="#!" className={`nav-link ${selectedOption === 'compras' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); setSelectedOption('compras'); }}>
               <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#grid"></use></svg>
               Historial de Compras
             </a>

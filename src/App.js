@@ -14,7 +14,7 @@ import Profesores from './components/profesores'
 import Relleno from './components/relleno'
 import Horario from './components/horario'
 import Perfil from './components/profile'
-import Perfil_profe from './components/profile_prof'
+import PerfilProfe from './components/profile_prof'
 
 function App() {
   //const handleSelect = (eventKey) =>
@@ -25,7 +25,6 @@ function App() {
     setLoggedIn(false);
   };
 
-  const [userData, setUserData] = useState(null);
 
   const handleProfileRedirect = async () => {
     try {
@@ -80,7 +79,7 @@ function App() {
             <Route path="/profesores" element={<Profesores />} />
             <Route path="/horario" element={<Horario />} />
             <Route path="/profile" element={<Perfil />} />
-            <Route path="/profile_prof" element={<Perfil_profe />} />
+            <Route path="/profile_prof" element={<PerfilProfe />} />
           </Routes>
         </main>
 

@@ -39,31 +39,31 @@ const Sidebar = () => {
       <div className="flex-shrink-0 p-3 bg-body-tertiary" style={{ backgroundColor: 'white', marginTop: "110px" }}>
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item">
-            <a href="#" className={`nav-link ${selectedOption === 'perfil' ? 'active' : ''}`} onClick={() => handleOptionSelect('perfil')}>
+            <a href="#!" className={`nav-link ${selectedOption === 'perfil' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleOptionSelect('perfil'); }}>
               <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#house-door"></use></svg>
               Perfil
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className={`nav-link ${selectedOption === 'modulos' ? 'active' : ''}`} onClick={() => handleOptionSelect('modulos')}>
+            <a href="#!" className={`nav-link ${selectedOption === 'modulos' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleOptionSelect('modulos'); }}>
               <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#file-earmark-text"></use></svg>
               Módulos
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className={`nav-link ${selectedOption === 'cursos' ? 'active' : ''}`} onClick={() => handleListaCurso('curso')}>
+            <a href="#!" className={`nav-link ${selectedOption === 'cursos' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleListaCurso('curso'); }}>
               <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#check-square"></use></svg>
               Cursos
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className={`nav-link ${selectedOption === 'evaluar' ? 'active' : ''}`} onClick={() => handleOptionSelect('evaluar')}>
+            <a href="#!" className={`nav-link ${selectedOption === 'evaluar' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleOptionSelect('evaluar'); }}>
               <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#check-square"></use></svg>
               Evaluar Estudiantes
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className={`nav-link ${selectedOption === 'notificacion' ? 'active' : ''}`} onClick={() => handleOptionSelect('notificacion')}>
+            <a href="#!" className={`nav-link ${selectedOption === 'notificacion' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleOptionSelect('notificacion'); }}>
               <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#file-earmark-text"></use></svg>
               Notificación
             </a>
@@ -105,8 +105,8 @@ const Sidebar = () => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                    <Dropdown.Item href="#">Material 1</Dropdown.Item>
-                    <Dropdown.Item href="#">Material 2</Dropdown.Item>
+                    <Dropdown.Item href="#!">Material 1</Dropdown.Item>
+                    <Dropdown.Item href="#!">Material 2</Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item>
                     <button className="btn" onClick={handleFileUpload}>

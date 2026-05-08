@@ -103,7 +103,7 @@ export default class Login extends Component {
               </button>
             </div>
             <p className="forgot-password text-right">
-              ¿Olvidaste la <a href="#">contraseña?</a>
+              ¿Olvidaste la <a href="#!">contraseña?</a>
             </p>
             <p>
               ¿Todavía no estás registrado? <Link to="/sign-up">Registrarse</Link>
